@@ -1,11 +1,12 @@
 # Courier Tracking
 
 ## Workflow
-1. Courier registers himself/herself and notifies server for initial location.
-2. Courier notifies server when his/her current location changed.
-3. When server recognizes courier's location changing, calculate courier's total travel distance and raise an application event.
-4. CourierLocationChangedEventHandler checks courier location close to any store and logs it.
-5. Courier's total travel distance could be fetched from endpoint as "GET courier/{id}".
+1. When application is started, stores initially added to StoreBuilder as value object.
+2. Courier registers himself/herself and notifies server for initial location.
+3. Courier notifies server when his/her current location changed.
+4. When server recognizes courier's location changing, calculate courier's total travel distance and raise an application event.
+5. CourierLocationChangedEventHandler checks courier location close to any store and logs it.
+6. Courier's total travel distance could be fetched from endpoint as "GET courier/{id}".
 
 ## Technical Debt
 1. DDD based clean architecture with command pattern is used.
