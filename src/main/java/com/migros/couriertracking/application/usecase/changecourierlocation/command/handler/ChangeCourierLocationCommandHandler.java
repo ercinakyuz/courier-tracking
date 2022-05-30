@@ -21,11 +21,12 @@ public class ChangeCourierLocationCommandHandler implements Command.Handler<Chan
 
     @Override
     public Voidy handle(final ChangeCourierLocationCommand changeCourierLocationCommand) {
-        final Courier courier = courierBuilder.build(changeCourierLocationCommand.getId());
-        courier.changeLocation(Location.create(LoadLocationDto.builder()
+        final Location newLocation = Location.create(LoadLocationDto.builder()
                 .latitude(changeCourierLocationCommand.getLatitude())
                 .longitude(changeCourierLocationCommand.getLongitude())
-                .build()));
+                .build());
+        final Courier courier = courierBuilder.build(changeCourierLocationCommand.getId());
+        courier.changeLocation(newLocation);
         courierOfWork.update(courier);
         return null;
     }
