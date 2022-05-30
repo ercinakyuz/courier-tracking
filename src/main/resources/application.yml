@@ -1,0 +1,12 @@
+spring:
+    datasource:
+    url: jdbc:h2:mem:courier_tracking
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        show-sql: true
+courier-log:
+    duration: 1m
+    availabilityDistanceInMeters: 100
